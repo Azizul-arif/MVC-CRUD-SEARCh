@@ -1,0 +1,36 @@
+﻿@model Test.Models.EmployeeModel
+@{
+    ViewBag.Title = "Create";
+}
+<div class="container">
+
+    <form action="@Url.Action("Create", "Home")" method="post">
+    <div>
+        <div class="form-group">
+            <label for="Name">
+                Name</label>
+            <input type="text" id="Name" class="form-control" name="Name" />
+        </div>
+        <div class="form-group">
+            <label for="Designation">
+                Designation</label>
+            <input type="text" id="Designation" class="form-control" name="Designation" />
+        </div>
+        <div class="form-group">
+            <label for="Age">
+                Age</label>
+            <input type="number" id="Age" class="form-control" name="age"/>
+        </div>
+        <div class="form-group">
+            <label for="Salary">
+                Salary</label>
+            <input type="number" id="Salary" class="form-control" name="Salary" />
+        </div>
+    </div>
+    <div class="my-4">
+        <button type="submit" class="btn btn-primary sm">
+            Save</button>
+        @*<a href="@Url.Action("Index")" class="btn btn-primary sm">Back To Main Page</a>*@
+    </div>
+    </form>
+</div>

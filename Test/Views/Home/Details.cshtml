@@ -1,0 +1,25 @@
+﻿@model Test.Models.EmployeeModel
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container">
+    <h2>
+        Employee Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-2">Name:</dt>
+                <dd class="col-sm-10">@Model.Name</dd>
+                <dt class="col-sm-2">Designation:</dt>
+                <dd class="col-sm-10">@Model.Designation</dd>
+                <dt class="col-sm-2">Age:</dt>
+                <dd class="col-sm-10">@Model.age</dd>
+                <dt class="col-sm-2">Salary:</dt>
+                <dd class="col-sm-10">@Model.Salary</dd>
+            </dl>
+            <div>
+            </div>
+        </div>
+        <a href="@Url.Action("Index")" class="btn btn-primary">Back to Index</a>
+    </div>
+</div>

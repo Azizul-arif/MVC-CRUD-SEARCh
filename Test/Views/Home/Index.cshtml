@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Test.Models.EmployeeModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <h2>
+        Index</h2>
+    <div>
+        <a href="@Url.Action("Create")" class="btn btn-primary">Create Employee</a>
+    </div>
+    <div>
+    <div class="row">
+     <div class="col-6">
+            <form method="get" action="@Url.Action("Search")">
+            <input class="form-control my-4 " type="text" name="searchTerm" id="searchInput" placeholder="Search..." />
+            <button type="submit" class="btn btn-primary">
+                Search</button>
+            </form>
+        </div>
+        <div class="col-6">
+        <form method="get" action="@Url.Action("SearchExact")">
+            <input class="form-control my-4 " type="text" name="searchExact" id="searchExact" placeholder="searchExact..." />
+            <button type="submit" class="btn btn-primary">
+                Search</button>
+            </form>
+        </div>
+    </div>
+       
+        <table id="employeeTable" class="table my-2 data-filter-control">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Name
+                    </th>
+                    <th scope="col">
+                        Designation
+                    </th>
+                    <th scope="col">
+                        Age
+                    </th>
+                    <th scope="col">
+                        Salary
+                    </th>
+                    <th scope="col">
+                        Details
+                    </th>
+                    <th scope="col">
+                        Edit
+                    </th>
+                    <th scope="col">
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Test.Models.EmployeeModel employee in Model)
+                {
+                    <tr>
+                        <td>
+                            @employee.Name
+                        </td>
+                        <td>
+                            @employee.Designation
+                        </td>
+                        <td>
+                            @employee.age
+                        </td>
+                        <td>
+                            @employee.Salary
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Details", new { id = employee.Id })" class="btn btn-warning">Details</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", new { id = employee.Id })" class="btn btn-info text-white">
+                                Edit</a>
+                        </td>
+                        <td>
+                            <form action="@Url.Action("Delete", new { id = employee.Id })" method="post">
+                            <input type="hidden" name="id" value="@employee.Id" />
+                            <button type="submit" class="btn btn-danger">
+                                Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    $document.ready(function () {
+        $('#employeeTable').DataTable({
+            responsive: true,
+            searching: true
+        });
+    });
+
+</script>

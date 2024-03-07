@@ -1,0 +1,38 @@
+﻿@model Test.Models.EmployeeModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+    <h2>Edit Employee</h2>
+
+    <form action="@Url.Action("Edit", "Home")" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="text" name="Name" value="@Model.Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="Designation">Designation:</label>
+            <input type="text" name="Designation" value="@Model.Designation" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="text" name="age" value="@Model.age" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="Salary">Salary:</label>
+            <input type="text" name="Salary" value="@Model.Salary" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <div class="mt-4">
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to Index</a>
+    </div>
+</div>
